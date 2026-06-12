@@ -5,12 +5,20 @@
     box-sizing: border-box;
 }
 
+/* define CSS variable */
+
+:root {
+    --flex-cols: 3; /* flex cols will be used to set number of flex columns (flex basis) for team members cards */ 
+}
+
+/* body: font Fredoka */
 body {
     font-family: Fredoka, Arial, sans-serif;
 }
 
 header {
     text-align: center;
+    margin: 0 30px;
 }
 
 h1 {
@@ -19,6 +27,43 @@ h1 {
     font-size: 32px;
 }
 
+/* cards (flexbox) and team-member card */
+
+.cards {
+    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+    flex-basis: calc(100% / var(--flex-cols)) - (30 * (var(--flex-cols) - 1) / var(--flex-cols));
+    justify-content: space-evenly;
+}
+
 .team-member {
-    background-color: rgb(47, 0, 255);
+    color: white;
+    background-color: rgb(0, 0, 90);
+    min-width: 320px;
+    position: relative; /* position relative in order to align the email address at the bottom of the card */
+}
+
+
+.team-member > img {
+    float: left;
+    margin-right: 10px;;
+    height: 7rem;
+}
+
+.team-member > .info-member {
+    margin: 10px;
+}
+
+.team-member > .info-member > a {
+    text-decoration: none;
+    color:rgb(0, 132, 255);
+    position: absolute; /* position absolute in order to align at the bottom */
+    bottom: 20px;
+}
+
+.info-member :first-child {
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 30px;
 }
