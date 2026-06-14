@@ -57,6 +57,7 @@ const formSubmit = e => {
         img: imgSub,
     })
     renderTeam()
+    newMemberForm.reset();
 };
 
 const submitMember = newMemberForm.addEventListener('submit', formSubmit);
