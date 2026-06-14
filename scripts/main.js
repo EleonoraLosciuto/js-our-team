@@ -26,3 +26,40 @@ const renderTeam = () => {
 renderTeam();
 
 
+// JS to add members through the form
+
+// STEPS
+// 1. Add the new member to array teamMembers and modify my database.js
+// 2. Re-render team to match new list
+
+// STEP 1.
+
+const newMemberForm = document.getElementById('addNewMemberForm')
+const newMemberName = document.querySelector('#name')
+const newMemberRole = document.querySelector('#role')
+const newMemberEmail = document.querySelector('#email')
+const newMemberImg = document.querySelector('#img')
+
+
+// Create function to use in event listener on form submit
+const formSubmit = e => {
+    e.preventDefault();
+
+    const nameSub = newMemberName.value;
+    const roleSub = newMemberRole.value;
+    const emailSub = newMemberEmail.value;
+    const imgSub = "img/" + newMemberImg.value;
+    
+    teamMembers.push({
+        name: nameSub,
+        role: roleSub,
+        email: emailSub,
+        img: imgSub,
+    })
+    renderTeam()
+};
+
+const submitMember = newMemberForm.addEventListener('submit', formSubmit);
+
+console.log(teamMembers);
+
